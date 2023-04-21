@@ -1,0 +1,39 @@
+body {
+    font-family: "Courier New", Courier;
+    background-color: rgb(196,196,196);
+}
+
+button {
+    font-family: "Courier New", Courier;
+}
+
+.hide {
+    display: none;
+}
+
+#text {
+    display: flex;
+    align-items: top;
+    justify-content: left;
+    flex-flow: row wrap;
+    padding:10px;
+}
+
+#mid {
+    margin-top: 2%;
+}
+
+textarea.BigText {
+    cols: 80;
+    margin:10px;
+}
+
+button {
+    font-weight:bold;
+    padding:5px;
+}
+
+#log {
+    border: 2px solid black;
+    padding: 5px;
+}

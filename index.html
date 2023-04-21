@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head >
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10.0, minimum-scale=.25, user-scalable=yes">
+    
+    <link rel="stylesheet" href="css/styles.css" />
+    <script type="text/javascript" src="js/code.js"></script>
+    <script type="text/javascript" src="js/translations.js"></script>
+
+    <title>Search Translator</title>
+    <meta name="description" content="A tool to translate searches in Pokemon GO between the various in-game languages">
+  </head>
+  <body>
+    This tool converts Pokemon GO search strings between languages.
+    <br>Using <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vSQubiAFnRgCUp9BSJaCq0-XSGU0-x3LvOwzWdAj-JlrXsdkBWrGrlfmvFmGcbjUnCa5XFSnv4C1Nzs/pubhtml?gid=1236962912'>data</a> from <a href='https://pokeminers.com'>Pokeminers</a>. Translations last updated April 20th, 2023.
+    <br>Paste your string in the first box, select languages, then press Translate.
+    <div id=text>
+      <div id=inp>
+	<textarea id=inptxt class=BigText placeholder="Insert String Here"></textarea>
+	<br> <label for=inpLan>Input Language</label>
+	<br> <select id=inpLan></select>
+      </div>
+      <div id=mid>
+	<b>=></b>
+      </div>
+      <div id=outp>
+	<textarea id=outtxt class=BigText placeholder="Output" readonly></textarea>
+	<br> <label for=inpLan>Output Language</label>
+	<br> <select id=outLan></select>
+	<br> <button id=copy>Copy Output to Clipboard</button>
+      </div>
+    </div>
+    <br> <button id=trans>Translate</button>
+    <br>
+    <input type=checkbox id=verbose></input>
+    <label for=verbose>Verbose</label>
+    <br> <p id=log class=hide>Information:</p>
+    <br><br>Note! Partial strings (eg 'Vulp' instead of 'Vulpix') will not be translated.
+  </body>
+</html>
