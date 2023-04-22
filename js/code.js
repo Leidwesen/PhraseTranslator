@@ -168,6 +168,9 @@ window.addEventListener('load', () => {
 
     inpTxt = $S('#inptxt');
     outTxt = $S('#outtxt');
+    inpTxt.placeholder = "Paste your string here, select both languages, then press Translate"+
+	"\n\nNote! Partial strings ('Vulp' instead of 'Vulpix') will not be translated.";
+    outTxt.placeholder = "Translated string will appear here";
     logTxt = $S('#log');
     
     copyBtn = $S('#copy')

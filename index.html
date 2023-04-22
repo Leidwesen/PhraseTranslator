@@ -8,16 +8,15 @@
     <script type="text/javascript" src="js/code.js"></script>
     <script type="text/javascript" src="js/translations.js"></script>
 
-    <title>Search Translator</title>
-    <meta name="description" content="A tool to translate searches in Pokemon GO between in-game languages">
+    <title>Phrase Translator</title>
+    <meta name="description" content="A tool to translate search strings in Pokemon GO between in-game languages">
   </head>
   <body>
-    This tool converts Pokemon GO search strings between languages.
-    <br>Using <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vSQubiAFnRgCUp9BSJaCq0-XSGU0-x3LvOwzWdAj-JlrXsdkBWrGrlfmvFmGcbjUnCa5XFSnv4C1Nzs/pubhtml?gid=1236962912'>data</a> from <a href='https://pokeminers.com'>Pokeminers</a>. Translations last updated April 20th, 2023.
-    <br>Paste your string in the first box, select languages, then press Translate.
+    This tool converts Pokemon GO <a href='https://leidwesen.github.io/SearchPhrases/'>search strings</a> between in-game languages.
+    <br>Using <a href='https://docs.google.com/spreadsheets/d/e/2PACX-1vSQubiAFnRgCUp9BSJaCq0-XSGU0-x3LvOwzWdAj-JlrXsdkBWrGrlfmvFmGcbjUnCa5XFSnv4C1Nzs/pubhtml?gid=1236962912'>data</a> from <a href='https://pokeminers.com'>Pokeminers</a>. Translations last updated <u>April 20th, 2023</u>.
     <div id=text>
       <div id=inp>
-	<textarea id=inptxt class=BigText rows=10 cols=30 placeholder="Insert String Here"></textarea>
+	<textarea id=inptxt class=BigText rows=10 cols=30></textarea>
 	<br> <label for=inpLan>Input Language</label>
 	<br> <select id=inpLan></select>
       </div>
@@ -25,7 +24,7 @@
 	<b>=></b>
       </div>
       <div id=outp>
-	<textarea id=outtxt class=BigText rows=10 cols=30 placeholder="Output" readonly></textarea>
+	<textarea id=outtxt class=BigText rows=10 cols=30 readonly></textarea>
 	<br> <label for=inpLan>Output Language</label>
 	<br> <select id=outLan></select>
 	<br> <button id=copy>Copy Output to Clipboard</button>
@@ -36,6 +35,5 @@
     <input type=checkbox id=verbose></input>
     <label for=verbose>Verbose</label>
     <br> <p id=log class=hide>Information:</p>
-    <br><br>Note! Partial strings ('Vulp' instead of 'Vulpix') will not be translated.
   </body>
 </html>
