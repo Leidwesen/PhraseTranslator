@@ -117,10 +117,13 @@ function detectLanguage(verbose) {
     let langs = Object.keys(TRANSLATIONS)
     inpLangs = new Set(langs)
     let tokens = inpTxt.value.split(sepRgx);
+    let checkedTokens = []
     for (let str of tokens) {
 	if (sepChars.includes(str) || str.length==0) continue // delim bit
 	[pre,token,post] = tokenize(str)
-	if (pre.includes('#') || token.length==0) continue // don't translate tags & pure post/prefixes
+	// don't translate tags & pure post/prefixes
+	if (pre.includes('#') || token.length==0 || customIncludes(checkedTokens,token)) continue
+	checkedTokens.push(token)
 	tokenLangs = []
 	for (let lang of langs) {
 	    if (customIncludes(TRANSLATIONS[lang],token)) {
