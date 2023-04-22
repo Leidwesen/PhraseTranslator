@@ -23,11 +23,10 @@ function copyText() {
 }
 
 function loadLangs() {
-    let langs = Object.keys(TRANSLATIONS)
     inpLanBox = $S("#inpLan")
     outLanBox = $S("#outLan")
     let langOptions = '';
-    for (let lang of langs) {
+    for (let lang of Object.keys(TRANSLATIONS)) {
 	langOptions += `<option>${lang}</option>`
     }
     outLanBox.innerHTML = langOptions
@@ -47,8 +46,10 @@ function translate() {
 	logTxt.classList.remove('hide')
 	inpLangs = detectLanguage(verbose)
 	if (inpLangs.length==0) {
-	    logTxt.innerText += `\nNo language found! You may be using multiple mutually exclusive strings, or nothing needs translating. Have you tried manually picking a language?`;
+	    logTxt.innerText += `\nNo language found! You may be using strings from different languages. Have you tried manually picking a language?`;
 	    return
+	} else if (inpLangs.length == Object.keys(TRANSLATIONS).length) {
+	    logTxt.innerText += `\nNo translation needed: Your string should work the same in all languages.`
 	} else 	if (inpLangs.length!=1) {
 	    logTxt.innerText += `\nMultiple Languages! - all translateable phrases belong to: [${[...inpLangs]}]. The translation will still work.`;
 	} else {
@@ -113,8 +114,8 @@ function tokenize(s) {
 // tries to figure out which language the input string could belong to
 // for every translatable string, intersects those languages with every other translation
 function detectLanguage(verbose) {
-    let anyFound = false
-    inpLangs = new Set(Object.keys(TRANSLATIONS))
+    let langs = Object.keys(TRANSLATIONS)
+    inpLangs = new Set(langs)
     let tokens = inpTxt.value.split(sepRgx);
     for (let str of tokens) {
 	if (sepChars.includes(str) || str.length==0) continue // delim bit
@@ -127,10 +128,9 @@ function detectLanguage(verbose) {
 	    }
 	}
 	if (verbose) {
-	    logTxt.innerText += `\nLanguages detected for ${str}: ${tokenLangs}`
+	    logTxt.innerText += `\nLanguages from ${str}: ${tokenLangs}`
 	}
 	if (tokenLangs.length > 0) {
-	    anyFound = true
 	    for (let tmplang of inpLangs) {
 		if (!customIncludes(tokenLangs, tmplang)) {
 		    inpLangs.delete(tmplang);
@@ -138,7 +138,6 @@ function detectLanguage(verbose) {
 	    }
 	}
     }
-    if (!anyFound) return []
     return [...inpLangs]
 }
 
