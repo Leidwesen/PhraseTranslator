@@ -50,8 +50,8 @@ function translate() {
 	    return
 	} else if (inpLangs.length == Object.keys(TRANSLATIONS).length) {
 	    logTxt.innerText += `\nNo translation needed: Your string should work the same in all languages.`
-	} else 	if (inpLangs.length!=1) {
-	    logTxt.innerText += `\nMultiple Languages! - all translateable phrases belong to: [${[...inpLangs]}]. The translation will still work.`;
+	} else if (inpLangs.length!=1) {
+	    logTxt.innerText += `\nMultiple Languages! - All translatable phrases belong to: [${[...inpLangs]}]. The translation will still work.`;
 	} else {
 	    logTxt.innerText += `\nLanguage Detected: ${[...inpLangs][0]}`;
 	}
