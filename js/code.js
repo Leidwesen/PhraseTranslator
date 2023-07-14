@@ -62,7 +62,8 @@ function translate() {
 
     txt = inpTxt.value;
     let tokens = inpTxt.value.split(sepRgx);
-    let warned = [];
+    let warnedF = [];
+    let warnedT = [];
     outString = ""
     for (let str of tokens) {
 	if (sepChars.includes(str) || str.length==0) {
@@ -96,15 +97,25 @@ function translate() {
 	    continue
 	} else {
 	    ttok = TRANSLATIONS[outLang][idx]
-	    let key = `${token.toUpperCase()}•${inpLang}`
-	    if (!warned.includes(key) && key in WARNS) {
-		let [qual, warn] = WARNS[key]
+	    let keyFrom = `${token.toUpperCase()}•${inpLang}`
+	    if (!warnedF.includes(keyFrom) && keyFrom in WARNS) {
+		let [qual, warnFrom, warnTo] = WARNS[keyFrom]
 		if (qual=="*" || qual==searchType) {
-		    warned.push(key)
-		    logTxt.innerText = warn + `\n\n` + logTxt.innerText;
+		    warnedF.push(keyFrom)
+		    logTxt.innerText = warnFrom + `\n\n` + logTxt.innerText;
 		    logTxt.classList.remove('hide')
 		}
 	    }
+	    let keyTo = `${ttok.toUpperCase()}•${outLang}`
+	    if (!warnedT.includes(keyTo) && keyTo in WARNS) {
+		let [qual, warnFrom, warnTo] = WARNS[keyTo]
+		if (qual=="*" || qual==searchType) {
+		    warnedT.push(keyTo)
+		    logTxt.innerText = warnTo + `\n\n` + logTxt.innerText;
+		    logTxt.classList.remove('hide')
+		}
+	    }
+
 	    if (verbose) {
 		logTxt.innerText += `\nTranslation: '${token}' -> '${ttok}' (${pre}_${token}_${post}) ${searchType}`;
 	    }
