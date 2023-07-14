@@ -7,6 +7,7 @@ var outTxt
 var copyBtn
 var copyTxt
 var logTxt
+var verbose
 
 const DetectLanguageString = 'Detect Language'
 const sepChars = [',','|','&',';',':'];
@@ -35,7 +36,7 @@ function loadLangs() {
 
 function translate() {
     logTxt.innerText = 'Information:';
-    let verbose = $S('#verbose').checked;
+    verbose = $S('#verbose').checked;
     if (verbose) { logTxt.classList.remove('hide') }
     else { logTxt.classList.add('hide') }
 
@@ -61,6 +62,7 @@ function translate() {
 
     txt = inpTxt.value;
     let tokens = inpTxt.value.split(sepRgx);
+    let warned = [];
     outString = ""
     for (let str of tokens) {
 	if (sepChars.includes(str) || str.length==0) {
@@ -79,17 +81,32 @@ function translate() {
 	    outString += str
 	    continue
 	}
-	idx = customIdx(TRANSLATIONS[inpLang], token)
+	// @ in pre: Move
+	// -\d * in post: Search
+	// Else: Name (not true but works well enough)
+	let searchType = (pre.indexOf("@")>=0) ? 'M' :
+	    (post.match(/[-\d\*]/) != null) ? 'S' :
+	    'N'
+	idx = customIdx(TRANSLATIONS[inpLang], token, inpLang, searchType)
 	if (idx==-1) {
 	    if (verbose) {
-		logTxt.innerText += `\nTranslation: Could not translate '${str}' (${pre}_${token}_${post})`
+		logTxt.innerText += `\nTranslation: Could not translate '${str}' (${pre}_${token}_${post}) ${searchType}`
 	    }
 	    outString += str
 	    continue
 	} else {
 	    ttok = TRANSLATIONS[outLang][idx]
+	    let key = `${token.toUpperCase()}•${inpLang}`
+	    if (!warned.includes(key) && key in WARNS) {
+		let [qual, warn] = WARNS[key]
+		if (qual=="*" || qual==searchType) {
+		    warned.push(key)
+		    logTxt.innerText = warn + `\n\n` + logTxt.innerText;
+		    logTxt.classList.remove('hide')
+		}
+	    }
 	    if (verbose) {
-		logTxt.innerText += `\nTranslation: '${token}' -> '${ttok}' (${pre}_${token}_${post})`;
+		logTxt.innerText += `\nTranslation: '${token}' -> '${ttok}' (${pre}_${token}_${post}) ${searchType}`;
 	    }
 	    outString += `${pre}${ttok}${post}`
 	}
@@ -113,7 +130,7 @@ function tokenize(s) {
 
 // tries to figure out which language the input string could belong to
 // for every translatable string, intersects those languages with every other translation
-function detectLanguage(verbose) {
+function detectLanguage() {
     let langs = Object.keys(TRANSLATIONS)
     inpLangs = new Set(langs)
     let tokens = inpTxt.value.split(sepRgx);
@@ -155,10 +172,17 @@ function customIncludes(arr, str) {
     return false
 }
 
-function customIdx(arr, str) {
+function customIdx(arr, str, lang, sType) {
     for (let i=0; i<arr.length; i++) {
 	el = arr[i];
-	if (customCompare(el, str)) return i
+	if (customCompare(el, str)) {
+	    let key = `${i}•${lang}`
+	    if (key in OVERLAPS && OVERLAPS[key] != sType) {
+		if (verbose) logTxt.innerText += `\nSkipping one instance of ${str} due to multiple in ${lang}`
+		continue
+	    }
+	    return i
+	}
     }
     return -1
 }
