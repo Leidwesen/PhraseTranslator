@@ -39,6 +39,7 @@ function translate() {
     verbose = $S('#verbose').checked;
     if (verbose) { logTxt.classList.remove('hide') }
     else { logTxt.classList.add('hide') }
+    lowercase = $S('#lowercase').checked;
 
     inpLangs = [inpLanBox.value];
     outLang = outLanBox.value;
@@ -122,7 +123,7 @@ function translate() {
 	    outString += `${pre}${ttok}${post}`
 	}
     }
-    outTxt.value = outString
+    outTxt.value = lowercase ? outString.toLocaleLowerCase(LOCALES[outLang]) : outString
 }
 
 // given a piece of text, attempt to coerce it into a translatable portion
