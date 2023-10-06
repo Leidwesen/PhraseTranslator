@@ -1,28 +1,28 @@
 OVERLAPS = {
 ['22•English']:'N'
-, ['1247•English']:'M', 
+, ['1348•English']:'M', 
 ['2•Thai']:'S'
 , ['269•Thai']:'N', 
 ['22•Hindi']:'N'
-, ['1247•Hindi']:'M', 
+, ['1348•Hindi']:'M', 
 ['22•Brazilian Portuguese']:'N'
-, ['1247•Brazilian Portuguese']:'M', 
+, ['1348•Brazilian Portuguese']:'M', 
 ['22•Spanish']:'N'
-, ['1247•Spanish']:'M', 
+, ['1348•Spanish']:'M', 
 ['22•Turkish']:'N'
-, ['1247•Turkish']:'M', 
+, ['1348•Turkish']:'M', 
 ['79•Chinese Traditional']:'N'
-, ['1245•Chinese Traditional']:'M', 
+, ['1346•Chinese Traditional']:'M', 
 ['79•French']:'N'
-, ['1245•French']:'M', 
+, ['1346•French']:'M', 
 ['79•Indonesian']:'N'
-, ['1245•Indonesian']:'M', 
+, ['1346•Indonesian']:'M', 
 ['79•Turkish']:'N'
-, ['1245•Turkish']:'M', 
+, ['1346•Turkish']:'M', 
 ['15•French']:'N'
-, ['1133•French']:'M', 
+, ['1234•French']:'M', 
 ['15•Indonesian']:'N'
-, ['1133•Indonesian']:'M', 
+, ['1234•Indonesian']:'M', 
 ['16•Japanese']:'N'
 , ['182•Japanese']:'N'
 }
