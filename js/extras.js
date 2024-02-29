@@ -1,30 +1,30 @@
 OVERLAPS = {
 ['22•English']:'N'
-, ['1348•English']:'M', 
+, ['1351•English']:'M', 
 ['2•Thai']:'S'
-, ['269•Thai']:'N', 
+, ['271•Thai']:'N', 
 ['22•Hindi']:'N'
-, ['1348•Hindi']:'M', 
+, ['1351•Hindi']:'M', 
 ['22•Brazilian Portuguese']:'N'
-, ['1348•Brazilian Portuguese']:'M', 
+, ['1351•Brazilian Portuguese']:'M', 
 ['22•Spanish']:'N'
-, ['1348•Spanish']:'M', 
+, ['1351•Spanish']:'M', 
 ['22•Turkish']:'N'
-, ['1348•Turkish']:'M', 
-['79•Chinese Traditional']:'N'
-, ['1346•Chinese Traditional']:'M', 
-['79•French']:'N'
-, ['1346•French']:'M', 
-['79•Indonesian']:'N'
-, ['1346•Indonesian']:'M', 
-['79•Turkish']:'N'
-, ['1346•Turkish']:'M', 
+, ['1351•Turkish']:'M', 
+['81•Chinese Traditional']:'N'
+, ['1349•Chinese Traditional']:'M', 
+['81•French']:'N'
+, ['1349•French']:'M', 
+['81•Indonesian']:'N'
+, ['1349•Indonesian']:'M', 
+['81•Turkish']:'N'
+, ['1349•Turkish']:'M', 
 ['15•French']:'N'
-, ['1234•French']:'M', 
+, ['1237•French']:'M', 
 ['15•Indonesian']:'N'
-, ['1234•Indonesian']:'M', 
+, ['1237•Indonesian']:'M', 
 ['16•Japanese']:'N'
-, ['182•Japanese']:'N'
+, ['184•Japanese']:'N'
 }
 WARNS = {
 'ゴースト•Japanese' : ['*', 'WARNING: ゴースト could mean either Ghost (type) or Haunter (pokemon)! This page defaults to Ghost, please edit the output if you want Haunter','WARNING: ゴースト means both Ghost (type) and Haunter (pokemon) [Unknown Priority], so your output may be different than expected'], 
