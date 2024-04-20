@@ -190,7 +190,7 @@ function customIdx(arr, str, lang, sType) {
 	if (customCompare(el, str)) {
 	    let key = `${i}•${lang}`
 	    if (key in OVERLAPS && OVERLAPS[key] != sType) {
-		if (verbose) logTxt.innerText += `\nSkipping one instance of ${str} due to multiple in ${lang}`
+			if (verbose) logTxt.innerText += `\nSkipping one instance of ${str} due to multiple in ${lang} (${OVERLAPS[key]} vs ${sType})`
 		continue
 	    }
 	    return i
