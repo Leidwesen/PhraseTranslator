@@ -1,30 +1,32 @@
 OVERLAPS = {
 ['24•English']:'N'
-, ['1486•English']:'M', 
+, ['1552•English']:'M', 
 ['3•Thai']:'S'
-, ['299•Thai']:'N', 
+, ['310•Thai']:'N', 
 ['24•Hindi']:'N'
-, ['1486•Hindi']:'M', 
+, ['1552•Hindi']:'M', 
 ['24•Brazilian Portuguese']:'N'
-, ['1486•Brazilian Portuguese']:'M', 
+, ['1552•Brazilian Portuguese']:'M', 
 ['24•Spanish']:'N'
-, ['1486•Spanish']:'M', 
+, ['1552•Spanish']:'M', 
 ['24•Turkish']:'N'
-, ['1486•Turkish']:'M', 
-['97•Traditional Chinese']:'N'
-, ['1484•Traditional Chinese']:'M', 
-['97•French']:'N'
-, ['1484•French']:'M', 
-['97•Indonesian']:'N'
-, ['1484•Indonesian']:'M', 
-['97•Turkish']:'N'
-, ['1484•Turkish']:'M', 
+, ['1552•Turkish']:'M', 
+['99•Traditional Chinese']:'N'
+, ['1550•Traditional Chinese']:'M', 
+['99•French']:'N'
+, ['1550•French']:'M', 
+['99•Indonesian']:'N'
+, ['1550•Indonesian']:'M', 
+['99•Turkish']:'N'
+, ['1550•Turkish']:'M', 
 ['17•French']:'N'
-, ['1311•French']:'M', 
+, ['1374•French']:'M', 
 ['17•Indonesian']:'N'
-, ['1311•Indonesian']:'M', 
+, ['1374•Indonesian']:'M', 
 ['18•Japanese']:'N'
-, ['207•Japanese']:'N'
+, ['214•Japanese']:'N', 
+['1268•Indonesian']:'M'
+, ['1269•Indonesian']:'M'
 };
 WARNS = {
 'ゴースト•Japanese' : ['*', 'WARNING: ゴースト could mean either Ghost (type) or Haunter (pokemon)! This page defaults to Ghost, please edit the output if you want Haunter','WARNING: ゴースト means both Ghost (type) and Haunter (pokemon) [Unknown Priority], so your output may be different than expected'], 
@@ -35,21 +37,4 @@ WARNS = {
 'PSÍQUICO•Brazilian Portuguese' : ['M', 'WARNING: Psíquico could mean either Psychic (type) or Psychic (move)! This page defaults to @Psychic (Move), please edit the output if you want @Psychic (type)','WARNING: Psíquico means both Psychic (type) and Psychic (move) [type taking priority], so your output may be different than expected'], 
 'PSÍQUICO•Spanish' : ['M', 'WARNING: Psíquico could mean either Psychic (type) or Psychic (move)! This page defaults to @Psychic (Move), please edit the output if you want @Psychic (type)','WARNING: Psíquico means both Psychic (type) and Psychic (move) [type taking priority], so your output may be different than expected'], 
 'PSIŞIK•Turkish' : ['M', 'WARNING: Psişik could mean either Psychic (type) or Psychic (move)! This page defaults to @Psychic (Move), please edit the output if you want @Psychic (type)','WARNING: Psişik means both Psychic (type) and Psychic (move) [type taking priority], so your output may be different than expected']
-};
-LOCALES = {
-'English':'en',
-'Brazilian Portuguese':'pt-BR',
-'Chinese Traditional':'zh',
-'French':'fr',
-'German':'de',
-'Hindi':'hi',
-'Indonesian':'id',
-'Italian':'it',
-'Japanese':'ja',
-'Korean':'ko',
-'Russian':'ru',
-'Spanish':'es',
-'Thai':'th',
-'Turkish':'tr',
-'Spanish (Latin American)':'es-MX'
 };
